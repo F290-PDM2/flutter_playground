@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'package:flutter/material.dart';
 
 class CounterStatefullPage extends StatefulWidget {
@@ -18,7 +19,7 @@ class _CounterStatefullPageState extends State<CounterStatefullPage> {
 
   @override
   Widget build(BuildContext context) {
-    print('CounterStatefullPage build called');
+    log('CounterStatefullPage build called');
     return Scaffold(
       appBar: AppBar(title: Text('Stateful Counter')),
       body: Column(
@@ -37,7 +38,7 @@ class _CounterStatefullPageState extends State<CounterStatefullPage> {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           _increment();
-          print('Counter: $_counter');
+          log('Counter: $_counter');
         },
         child: Icon(Icons.add),
       ),

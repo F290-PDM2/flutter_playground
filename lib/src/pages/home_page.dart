@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_playground/src/pages/counter_statefull_page.dart';
-import 'package:flutter_playground/src/pages/counter_stateless_page.dart';
-import 'package:flutter_playground/src/pages/products_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -19,13 +16,13 @@ class HomePage extends StatelessWidget {
           children: [
             SizedBox(width: double.infinity),
             FilledButton(onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) =>  CounterStatelessPage()));
+              Navigator.pushNamed(context, '/counter_stateless');
             }, child: Text('Statelles Counter')),
             FilledButton(onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) =>  CounterStatefullPage()));
+              Navigator.pushNamed(context, '/counter_statefull');
             }, child: Text('Statefull Counter')),
             FilledButton(onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) =>  ProductsPage()));
+              Navigator.pushNamed(context, '/products');
             }, child: Text('Products Page')),
           ],
         ),

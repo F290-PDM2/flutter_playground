@@ -1,5 +1,8 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class CounterStatelessPage extends StatelessWidget {
   CounterStatelessPage({super.key});
 
@@ -11,7 +14,7 @@ class CounterStatelessPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print('CounterStatelessPage build called');
+    log('CounterStatelessPage build called');
     return Scaffold(
       appBar: AppBar(title: Text('Stateless Counter')),
       body: Column(
@@ -27,7 +30,7 @@ class CounterStatelessPage extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           _increment();
-          print('Counter: $_counter');
+          log('Counter: $_counter');
         },
         child: Icon(Icons.add),
       ),
