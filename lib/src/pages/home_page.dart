@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_playground/src/pages/counter_statefull_page.dart';
 import 'package:flutter_playground/src/pages/counter_stateless_page.dart';
+import 'package:flutter_playground/src/pages/products_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -16,18 +18,15 @@ class HomePage extends StatelessWidget {
           crossAxisAlignment: .stretch,
           children: [
             SizedBox(width: double.infinity),
-            FilledButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const CounterStatelessPage(),
-                  ),
-                );
-              },
-              child: Text('Statelles Counter'),
-            ),
-            FilledButton(onPressed: () {}, child: Text('Statefull Counter')),
+            FilledButton(onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) =>  CounterStatelessPage()));
+            }, child: Text('Statelles Counter')),
+            FilledButton(onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) =>  CounterStatefullPage()));
+            }, child: Text('Statefull Counter')),
+            FilledButton(onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) =>  ProductsPage()));
+            }, child: Text('Products Page')),
           ],
         ),
       ),
