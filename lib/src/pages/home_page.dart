@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_playground/src/pages/counter_statefull_page.dart';
 import 'package:flutter_playground/src/pages/counter_stateless_page.dart';
 import 'package:flutter_playground/src/pages/products_page.dart';
+import 'package:flutter_playground/src/pages/widgtes/menu_item.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -14,19 +15,25 @@ class HomePage extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 16.0),
         child: Column(
           mainAxisSize: .max,
-          mainAxisAlignment: .center,
-          crossAxisAlignment: .stretch,
+          mainAxisAlignment: .start,
           children: [
-            SizedBox(width: double.infinity),
-            FilledButton(onPressed: () {
-              Navigator.pushNamed(context, '/stateless-counter');
-            }, child: Text('Statelles Counter')),
-            FilledButton(onPressed: () {
-              Navigator.pushNamed(context, '/statefull-counter');
-            }, child: Text('Statefull Counter')),
-            FilledButton(onPressed: () {
-              Navigator.pushNamed(context, '/products');
-            }, child: Text('Products Page')),
+            MenuItemWidget(
+              title: 'Stateless Counter',
+              subtitle: 'Demonstração Stateless Widget',
+              route: '/stateless-counter',
+            ),
+            MenuItemWidget(
+              title: 'Statefull Counter',
+              subtitle: 'Demonstração Stateless Widget',
+              route: '/statefull-counter',
+              icon: Icons.add,
+            ),
+            MenuItemWidget(
+              title: 'Products',
+              subtitle: 'Statefull Widgets c/ Future API',
+              route: '/products',
+              icon: Icons.shopping_cart,
+            ),
           ],
         ),
       ),
