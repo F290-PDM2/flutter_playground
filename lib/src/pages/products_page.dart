@@ -9,6 +9,8 @@ class ProductsPage extends StatefulWidget {
 }
 
 class _ProductsPageState extends State<ProductsPage> {
+  String? _data;
+
   Future<String> _fetchData() async {
     await Future.delayed(Duration(seconds: 5)); // Simulate network delay
     final response = await http.get(
@@ -22,26 +24,18 @@ class _ProductsPageState extends State<ProductsPage> {
   }
 
   @override
+  void initState() {
+    _fetchData().then((response) => setState(() => _data = response));
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('Products Page')),
-      body: FutureBuilder(
-        future: _fetchData(),
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.waiting) {
-            return Center(child: CircularProgressIndicator());
-          } else if (snapshot.hasError) {
-            return Center(child: Text('Error: ${snapshot.error}'));
-          } else if (snapshot.hasData) {
-            return Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Text(snapshot.data!),
-            );
-          } else {
-            return Center(child: Text('No data available'));
-          }
-        },
-      ),
+      body: _data == null
+          ? Center(child: CircularProgressIndicator())
+          : Text(_data ?? 'Falha na requisição de produtos'),
     );
   }
 }
