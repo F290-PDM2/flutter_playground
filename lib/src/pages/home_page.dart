@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_playground/src/pages/counter_statefull_page.dart';
-import 'package:flutter_playground/src/pages/counter_stateless_page.dart';
-import 'package:flutter_playground/src/pages/products_page.dart';
 import 'package:flutter_playground/src/pages/widgtes/menu_item.dart';
 
 class HomePage extends StatelessWidget {
@@ -33,6 +30,12 @@ class HomePage extends StatelessWidget {
               subtitle: 'Statefull Widgets c/ Future API',
               route: '/products',
               icon: Icons.shopping_cart,
+            ),
+            MenuItemWidget(
+              title: 'Quote',
+              subtitle: 'Trabalhando com JSON',
+              route: '/quote',
+              icon: Icons.format_quote_outlined,
             ),
           ],
         ),

@@ -3,6 +3,7 @@ import 'package:flutter_playground/src/pages/counter_statefull_page.dart';
 import 'package:flutter_playground/src/pages/counter_stateless_page.dart';
 import 'package:flutter_playground/src/pages/home_page.dart';
 import 'package:flutter_playground/src/pages/products_page.dart';
+import 'package:flutter_playground/src/pages/quote_page.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
@@ -16,7 +17,8 @@ class App extends StatelessWidget {
         '/': (context) => HomePage(),
         '/stateless-counter': (context) => CounterStatelessPage(),
         '/statefull-counter': (context) => CounterStatefullPage(),
-        '/products' : (context) => ProductsPage()
+        '/products' : (context) => ProductsPage(),
+        '/quote' : (context) => QuotePage()
       },
     );
   }
