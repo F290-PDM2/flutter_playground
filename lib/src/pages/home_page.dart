@@ -19,13 +19,13 @@ class HomePage extends StatelessWidget {
           children: [
             SizedBox(width: double.infinity),
             FilledButton(onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) =>  CounterStatelessPage()));
+              Navigator.pushNamed(context, '/stateless-counter');
             }, child: Text('Statelles Counter')),
             FilledButton(onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) =>  CounterStatefullPage()));
+              Navigator.pushNamed(context, '/statefull-counter');
             }, child: Text('Statefull Counter')),
             FilledButton(onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) =>  ProductsPage()));
+              Navigator.pushNamed(context, '/products');
             }, child: Text('Products Page')),
           ],
         ),
