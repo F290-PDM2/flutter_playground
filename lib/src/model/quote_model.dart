@@ -1,9 +1,15 @@
-//TODO: Criar a model class QuoteModel com base no JSON abaixo
+class QuoteModel {
+  final int id;
+  final String quote;
+  final String author;
 
-/**
-    {
-    "id": 62,
-    "quote": "If you want to lift yourself up, lift up someone else.",
-    "author": "Booker T. Washington"
-    }
- */
+  QuoteModel({required this.id, required this.quote, required this.author});
+
+  factory QuoteModel.fromJson(Map<String, dynamic> json) {
+    return QuoteModel(
+        id: json['id'],
+        quote: json['quote'],
+        author: json['author']
+    );
+  }
+}
