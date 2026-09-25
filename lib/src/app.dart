@@ -7,6 +7,7 @@ import 'package:flutter_playground/src/pages/material_design_page.dart';
 import 'package:flutter_playground/src/pages/categories_page.dart';
 import 'package:flutter_playground/src/pages/products_page.dart';
 import 'package:flutter_playground/src/pages/quote_page.dart';
+import 'package:flutter_playground/src/pages/settings_page.dart';
 
 class App extends StatelessWidget {
   App({super.key});
@@ -46,7 +47,8 @@ class App extends StatelessWidget {
         '/quote': (context) => QuotePage(),
         '/material': (context) => MaterialDesignPage(),
         '/products' : (context) => ProductsPage(),
-        '/product-details' : (context) => DetailProductPage()
+        '/product-details' : (context) => DetailProductPage(),
+        '/settings' : (context) => SettingsPage(),
       },
     );
   }

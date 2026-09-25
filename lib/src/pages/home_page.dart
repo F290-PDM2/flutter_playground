@@ -8,6 +8,20 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('Flutter Playground')),
+      drawer: SafeArea(
+        child: Drawer(
+          child: Column(
+            children: [
+              ListTile(
+                leading: Icon(Icons.settings),
+                title: Text('Configurações'),
+                subtitle: Text('Ajusta as configurações do aplicativo'),
+                onTap: () => Navigator.pushNamed(context, '/settings'),
+              ),
+            ],
+          ),
+        ),
+      ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0),
         child: Column(
