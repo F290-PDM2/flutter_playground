@@ -1,5 +1,5 @@
+import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
 
 class ProductsPage extends StatefulWidget {
   const ProductsPage({super.key});
@@ -9,33 +9,36 @@ class ProductsPage extends StatefulWidget {
 }
 
 class _ProductsPageState extends State<ProductsPage> {
-  String? _data;
-
-  Future<String> _fetchData() async {
-    await Future.delayed(Duration(seconds: 5)); // Simulate network delay
-    final response = await http.get(
-      Uri.parse('https://dummyjson.com/products'),
-    );
-    if (response.statusCode == 200) {
-      return response.body;
-    } else {
-      throw Exception('Failed to load data');
-    }
-  }
-
-  @override
-  void initState() {
-    _fetchData().then((response) => setState(() => _data = response));
-    super.initState();
-  }
-
   @override
   Widget build(BuildContext context) {
+    final index = ModalRoute.of(context)!.settings.arguments as int;
     return Scaffold(
-      appBar: AppBar(title: Text('Products Page')),
-      body: _data == null
-          ? Center(child: CircularProgressIndicator())
-          : Text(_data ?? 'Falha na requisição de produtos'),
+      appBar: AppBar(title: const Text("Products")),
+      body: ListView.builder(
+        itemCount: 30,
+        itemBuilder: (context, index) {
+          return Card(
+            child: ListTile(
+              leading: CircleAvatar(
+                backgroundImage: NetworkImage(
+                  faker.image.loremPicsum(seed: '5', random: 5),
+                ),
+              ),
+              title: Text(faker.person.name()),
+              subtitle: Text(faker.lorem.sentence()),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) =>
+                        Scaffold(appBar: AppBar(title: Text("Detail Page"))),
+                  ),
+                );
+              },
+            ),
+          );
+        },
+      ),
     );
   }
 }

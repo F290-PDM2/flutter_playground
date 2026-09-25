@@ -28,14 +28,20 @@ class HomePage extends StatelessWidget {
             MenuItemWidget(
               title: 'Products',
               subtitle: 'Statefull Widgets c/ Future API',
-              route: '/products',
+              route: '/product-categories',
               icon: Icons.shopping_cart,
             ),
             MenuItemWidget(
               title: 'Quote',
               subtitle: 'Trabalhando com JSON',
               route: '/quote',
-              icon: Icons.format_quote_outlined,
+              icon: Icons.format_quote,
+            ),
+            MenuItemWidget(
+              title: 'Material Design',
+              subtitle: 'Trabalhando M3',
+              route: '/material',
+              icon: Icons.color_lens,
             ),
           ],
         ),
