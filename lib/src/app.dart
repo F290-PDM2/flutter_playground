@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_playground/src/pages/counter_statefull_page.dart';
 import 'package:flutter_playground/src/pages/counter_stateless_page.dart';
+import 'package:flutter_playground/src/pages/detail_product_page.dart';
 import 'package:flutter_playground/src/pages/home_page.dart';
 import 'package:flutter_playground/src/pages/material_design_page.dart';
 import 'package:flutter_playground/src/pages/categories_page.dart';
@@ -44,7 +45,8 @@ class App extends StatelessWidget {
         '/product-categories': (context) => ProductCategoriesPage(),
         '/quote': (context) => QuotePage(),
         '/material': (context) => MaterialDesignPage(),
-        '/products' : (context) => ProductsPage()
+        '/products' : (context) => ProductsPage(),
+        '/product-details' : (context) => DetailProductPage()
       },
     );
   }

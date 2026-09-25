@@ -26,15 +26,7 @@ class _ProductsPageState extends State<ProductsPage> {
               ),
               title: Text(faker.person.name()),
               subtitle: Text(faker.lorem.sentence()),
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) =>
-                        Scaffold(appBar: AppBar(title: Text("Detail Page"))),
-                  ),
-                );
-              },
+              onTap: () => Navigator.pushNamed(context, '/product-details'),
             ),
           );
         },
