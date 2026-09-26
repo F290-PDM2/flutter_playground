@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class ThemeProvider extends InheritedWidget {
-  const ThemeProvider({
+class ThemeScope extends InheritedWidget {
+  const ThemeScope({
     super.key,
     required super.child,
     required this.isDarkTheme,
@@ -11,12 +11,12 @@ class ThemeProvider extends InheritedWidget {
   final bool isDarkTheme;
   final Function(bool) toogleBrightness;
 
-  static ThemeProvider of(BuildContext context) {
+  static ThemeScope of(BuildContext context) {
     return context.dependOnInheritedWidgetOfExactType()!;
   }
 
   @override
-  bool updateShouldNotify(ThemeProvider oldWidget) {
+  bool updateShouldNotify(ThemeScope oldWidget) {
     return oldWidget.isDarkTheme != isDarkTheme;
   }
 }

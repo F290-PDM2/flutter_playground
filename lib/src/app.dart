@@ -8,6 +8,7 @@ import 'package:flutter_playground/src/pages/categories_page.dart';
 import 'package:flutter_playground/src/pages/products_page.dart';
 import 'package:flutter_playground/src/pages/quote_page.dart';
 import 'package:flutter_playground/src/pages/settings_page.dart';
+import 'package:flutter_playground/src/providers/theme_scope.dart';
 
 class App extends StatelessWidget {
   App({super.key});
@@ -33,9 +34,11 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final provider = ThemeScope.of(context);
     return MaterialApp(
-      theme: lightTheme,
-      darkTheme: null,
+      theme: provider.isDarkTheme
+          ? ThemeData.dark()
+          : ThemeData.light(),
       debugShowCheckedModeBanner: false,
       title: 'Flutter Playground',
       initialRoute: '/',
