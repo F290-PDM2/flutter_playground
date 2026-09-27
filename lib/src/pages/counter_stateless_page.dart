@@ -20,16 +20,20 @@ class CounterStatelessPage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           SizedBox(width: double.infinity),
-          Text(_counter.toString(), style: Theme.of(context).textTheme.displayLarge),
+          Text(
+            _counter.toString(),
+            style: Theme.of(context).textTheme.displayLarge,
+          ),
         ],
       ),
       // Atenção: O FAB Button estara fora da coluna, mas dentro do Scaffold, para que ele fique no canto inferior direito da tela
-      floatingActionButton: FloatingActionButton(
+      floatingActionButton: FloatingActionButton.extended(
         onPressed: () {
           _increment();
           print('Counter: $_counter');
         },
-        child: Icon(Icons.add),
+        icon: Icon(Icons.add),
+        label: Text('Increment'),
       ),
     );
   }

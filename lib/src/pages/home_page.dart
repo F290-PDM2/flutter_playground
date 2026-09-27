@@ -16,7 +16,10 @@ class HomePage extends StatelessWidget {
                 leading: Icon(Icons.settings),
                 title: Text('Configurações'),
                 subtitle: Text('Ajusta as configurações do aplicativo'),
-                onTap: () => Navigator.pushNamed(context, '/settings'),
+                onTap: () {
+                  Navigator.pop(context);
+                  Navigator.pushNamed(context, '/settings');
+                },
               ),
             ],
           ),

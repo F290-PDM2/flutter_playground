@@ -8,11 +8,11 @@ import 'package:flutter_playground/src/pages/categories_page.dart';
 import 'package:flutter_playground/src/pages/products_page.dart';
 import 'package:flutter_playground/src/pages/quote_page.dart';
 import 'package:flutter_playground/src/pages/settings_page.dart';
+import 'package:flutter_playground/src/providers/theme_rovider.dart';
+import 'package:provider/provider.dart';
 
 class App extends StatelessWidget {
   App({super.key});
-
-
 
   // final lightTheme = ThemeData(
   //   useMaterial3: false,
@@ -26,16 +26,24 @@ class App extends StatelessWidget {
   final lightTheme = ThemeData(
     useMaterial3: true,
     colorScheme: ColorScheme.fromSeed(
-        brightness: .light,
-        seedColor: Color(0Xff1A56DB))
-        .copyWith(secondary: Color(0xFFEBF2FF), tertiary: Color(0xFF1A3C88)),
+      brightness: .light,
+      seedColor: Color(0Xff1A56DB),
+    ).copyWith(secondary: Color(0xFFEBF2FF), tertiary: Color(0xFF1A3C88)),
   );
 
   @override
   Widget build(BuildContext context) {
+    final darkBrightnesProvider = context.watch<ThemeProvider>();
+    final color = context.watch<ThemeProvider>().colorTheme;
+    final theme = ThemeData(
+      useMaterial3: true,
+      colorScheme: ColorScheme.fromSeed(
+        brightness: darkBrightnesProvider.isDarkTheme ? Brightness.dark : Brightness.light,
+        seedColor: color,
+      ),
+    );
     return MaterialApp(
-      theme: lightTheme,
-      darkTheme: null,
+      theme: theme,
       debugShowCheckedModeBanner: false,
       title: 'Flutter Playground',
       initialRoute: '/',
@@ -46,9 +54,9 @@ class App extends StatelessWidget {
         '/product-categories': (context) => ProductCategoriesPage(),
         '/quote': (context) => QuotePage(),
         '/material': (context) => MaterialDesignPage(),
-        '/products' : (context) => ProductsPage(),
-        '/product-details' : (context) => DetailProductPage(),
-        '/settings' : (context) => SettingsPage(),
+        '/products': (context) => ProductsPage(),
+        '/product-details': (context) => DetailProductPage(),
+        '/settings': (context) => SettingsPage(),
       },
     );
   }

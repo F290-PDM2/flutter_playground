@@ -34,7 +34,7 @@ class _CounterStatefullPageState extends State<CounterStatefullPage> {
         ],
       ),
       // Atenção: O FAB Button estara fora da coluna, mas dentro do Scaffold, para que ele fique no canto inferior direito da tela
-      floatingActionButton: FloatingActionButton(
+      floatingActionButton: FloatingActionButton.large(
         onPressed: () {
           _increment();
           print('Counter: $_counter');
