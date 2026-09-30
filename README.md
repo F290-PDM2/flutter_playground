@@ -192,7 +192,7 @@ variável local `theme`, não do campo antigo `lightTheme` ainda presente no arq
 
 ## 7. Alterando brightness e cor nas configurações
 
-Em [settings_page.dart](lib/src/pages/settings_page.dart), a leitura acontece
+Em [settings_page.dart](lib/src/features/settings/view/settings_view.dart), a leitura acontece
 no início do `build`:
 
 ```dart

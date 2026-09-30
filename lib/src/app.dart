@@ -7,11 +7,14 @@ import 'package:flutter_playground/src/pages/material_design_page.dart';
 import 'package:flutter_playground/src/pages/categories_page.dart';
 import 'package:flutter_playground/src/pages/products_page.dart';
 import 'package:flutter_playground/src/pages/quote_page.dart';
-import 'package:flutter_playground/src/pages/settings_page.dart';
+import 'package:flutter_playground/src/features/settings/view/settings_view.dart';
 import 'package:flutter_playground/src/providers/theme_rovider.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:provider/provider.dart';
 
-class App extends StatelessWidget {
+import 'features/settings/viewmodel/settings_viewmodel.dart';
+
+class App extends ConsumerWidget {
   App({super.key});
 
   // final lightTheme = ThemeData(
@@ -32,13 +35,15 @@ class App extends StatelessWidget {
   );
 
   @override
-  Widget build(BuildContext context) {
-    final darkBrightnesProvider = context.watch<ThemeProvider>();
-    final color = context.watch<ThemeProvider>().colorTheme;
+  Widget build(BuildContext context, WidgetRef ref) {
+    final color = ref.watch(colorThemeProvider);
+    final isDarkTheme = ref.watch(darkThemeProvider);
     final theme = ThemeData(
       useMaterial3: true,
       colorScheme: ColorScheme.fromSeed(
-        brightness: darkBrightnesProvider.isDarkTheme ? Brightness.dark : Brightness.light,
+        brightness: isDarkTheme
+            ? Brightness.dark
+            : Brightness.light,
         seedColor: color,
       ),
     );
@@ -56,7 +61,7 @@ class App extends StatelessWidget {
         '/material': (context) => MaterialDesignPage(),
         '/products': (context) => ProductsPage(),
         '/product-details': (context) => DetailProductPage(),
-        '/settings': (context) => SettingsPage(),
+        '/settings': (context) => SettingsView(),
       },
     );
   }

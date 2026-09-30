@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_riverpod/legacy.dart';
 
-class CounterStatelessPage extends StatelessWidget {
-  CounterStatelessPage({super.key});
+final conterProvider = StateProvider<int>((ref) => 0);
 
-  int _counter = 0;
-
-  void _increment() {
-    _counter++;
-  }
+class CounterStatelessPage extends ConsumerWidget {
+  const CounterStatelessPage({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     print('CounterStatelessPage build called');
     return Scaffold(
       appBar: AppBar(title: Text('Stateless Counter')),
@@ -21,7 +19,7 @@ class CounterStatelessPage extends StatelessWidget {
         children: [
           SizedBox(width: double.infinity),
           Text(
-            _counter.toString(),
+            ref.watch(conterProvider).toString(),
             style: Theme.of(context).textTheme.displayLarge,
           ),
         ],
@@ -29,8 +27,8 @@ class CounterStatelessPage extends StatelessWidget {
       // Atenção: O FAB Button estara fora da coluna, mas dentro do Scaffold, para que ele fique no canto inferior direito da tela
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () {
-          _increment();
-          print('Counter: $_counter');
+          ref.read(conterProvider.notifier).state++;
+          print('Counter: ${ref.read(conterProvider)}');
         },
         icon: Icon(Icons.add),
         label: Text('Increment'),

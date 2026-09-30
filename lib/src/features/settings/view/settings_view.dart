@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_playground/src/providers/theme_rovider.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:provider/provider.dart';
 
-class SettingsPage extends StatelessWidget {
-  const SettingsPage({super.key});
+import '../viewmodel/settings_viewmodel.dart';
+
+class SettingsView extends ConsumerWidget {
+  const SettingsView({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    final provider = context.watch<ThemeProvider>();
+  Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       appBar: AppBar(title: Text('Settings')),
       body: Column(
@@ -16,18 +18,18 @@ class SettingsPage extends StatelessWidget {
           SwitchListTile(
             title: Text('Tema escuro'),
             subtitle: Text('Modifica o brightness do aplicativo'),
-            value: provider.isDarkTheme,
-            onChanged: (value) => provider.toogleBrightness(value),
+            value: ref.watch(darkThemeProvider),
+            onChanged: (value) => ref.read(darkThemeProvider.notifier).state = value,
           ),
           DropdownMenu<Color>(
             expandedInsets: EdgeInsets.symmetric(horizontal: 16),
-            leadingIcon: Icon(Icons.palette, color: provider.colorTheme),
-            onSelected: (value) => provider.changeColor(value!),
+            leadingIcon: Icon(Icons.palette, color: ref.watch(colorThemeProvider)),
+            onSelected: (value) => ref.read(colorThemeProvider.notifier).state = value!,
             dropdownMenuEntries: [
               for (var color in Colors.primaries)
                 DropdownMenuEntry(
                   value: color,
-                  label: provider.getColorName(color) ?? 'Cor',
+                  label: getColorName(color) ?? 'Cor',
                   leadingIcon: Icon(Icons.palette, color: color),
                 ),
             ],
