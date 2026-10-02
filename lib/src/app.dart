@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_playground/src/pages/counter_statefull_page.dart';
 import 'package:flutter_playground/src/pages/counter_stateless_page.dart';
-import 'package:flutter_playground/src/pages/detail_product_page.dart';
+import 'package:flutter_playground/src/features/products/view/detail_product_page.dart';
 import 'package:flutter_playground/src/pages/home_page.dart';
 import 'package:flutter_playground/src/pages/material_design_page.dart';
-import 'package:flutter_playground/src/pages/categories_page.dart';
-import 'package:flutter_playground/src/pages/products_page.dart';
+import 'package:flutter_playground/src/features/products/view/categories_page.dart';
+import 'package:flutter_playground/src/features/products/view/products_page.dart';
 import 'package:flutter_playground/src/pages/quote_page.dart';
 import 'package:flutter_playground/src/features/settings/view/settings_view.dart';
 import 'package:flutter_playground/src/providers/theme_rovider.dart';
