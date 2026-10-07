@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_playground/src/features/products/view/widgets/category_grid_widget.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:http/http.dart' as http;
-import 'package:faker/faker.dart' as f;
 
 import '../viewmodel/category_viewmodel.dart';
 

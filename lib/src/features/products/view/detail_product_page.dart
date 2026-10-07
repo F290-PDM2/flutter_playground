@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:faker/faker.dart' as f;
+import 'package:flutter_playground/src/features/products/model/product_model.dart';
 
 class DetailProductPage extends StatelessWidget {
   const DetailProductPage({super.key});
@@ -8,6 +9,9 @@ class DetailProductPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final sizeOf = MediaQuery.sizeOf(context);
     final theme = Theme.of(context).textTheme;
+
+    final product = ModalRoute.of(context)?.settings.arguments as ProductModel;
+
     return Scaffold(
       appBar: AppBar(title: Text('Detail Product')),
       body: ListView(
