@@ -6,7 +6,7 @@ import 'package:flutter_playground/src/pages/home_page.dart';
 import 'package:flutter_playground/src/pages/material_design_page.dart';
 import 'package:flutter_playground/src/features/products/view/categories_page.dart';
 import 'package:flutter_playground/src/features/products/view/products_page.dart';
-import 'package:flutter_playground/src/pages/quote_page.dart';
+import 'package:flutter_playground/src/features/quotes/presentation/quote_page.dart';
 import 'package:flutter_playground/src/features/settings/view/settings_view.dart';
 import 'package:flutter_playground/src/providers/theme_rovider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

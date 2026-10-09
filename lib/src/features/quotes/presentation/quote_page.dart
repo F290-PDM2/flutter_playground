@@ -1,10 +1,10 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_playground/src/pages/widgtes/quote_card_widget.dart';
+import 'package:flutter_playground/src/features/quotes/presentation/widgets/quote_card_widget.dart';
 import 'package:http/http.dart';
 
-import '../model/quote_model.dart';
+import '../domain/quote_model.dart';
 
 class QuotePage extends StatefulWidget {
   const QuotePage({super.key});
