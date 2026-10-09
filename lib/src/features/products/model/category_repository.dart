@@ -7,7 +7,7 @@ class CategoryRepository {
   CategoryRepository({required this.dio});
 
   Future<List<CategoryModel>> findAll() async {
-    final response = await dio.get('/categories');
+    final response = await dio.get('/products/categories');
     return [for (final json in response.data) CategoryModel.fromJson(json)];
   }
 }

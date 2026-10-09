@@ -6,7 +6,7 @@ class ProductRepository {
   ProductRepository({required this.dio});
 
   Future<List<ProductModel>> findByCategory(String category) async {
-    final products = await dio.get('/category/$category');
+    final products = await dio.get('/products/category/$category');
     return [for(final json in products.data['products']) ProductModel.fromJson(json)];
   }
 }

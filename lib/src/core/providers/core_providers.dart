@@ -5,5 +5,5 @@ part 'core_providers.g.dart';
 
 @riverpod
 Dio dio(Ref ref) {
-  return Dio(BaseOptions(baseUrl: 'https://dummyjson.com/products'));
+  return Dio(BaseOptions(baseUrl: 'https://dummyjson.com/'));
 }
