@@ -8,13 +8,18 @@ class QuotePage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final quotes = ref.watch(findAllQuotesProvider);
+    final quotes = ref.watch(quoteViewModelProvider);
+    final viewModel = ref.read(quoteViewModelProvider.notifier);
     return Scaffold(
       appBar: AppBar(title: Text('DummyJson Quote')),
       body: quotes.when(
         data: (data) => QuoteListWidget(quotes: data),
         error: (error, _) => Center(child: Text('Error: ${error.toString()}')),
         loading: () => Center(child: CircularProgressIndicator()),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => viewModel.add(),
+        child: Icon(Icons.refresh),
       ),
     );
   }
